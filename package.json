@@ -1,0 +1,41 @@
+{
+    "name": "js-starter-kit",
+    "version": "1.0.0",
+    "description": "JS Project development environment starter",
+    "scripts": {
+        "start-message": "babel-node tools/start-message.js",
+        "prestart": "npm run start-message",
+        "start": "concurrently -k -r -s first \"npm run open:dev\" \"npm run lint:watch\"",
+        "open:dev": "babel-node tools/dev-server.js",
+        "lint": "esw --color webpack.config.* src tools",
+        "lint:watch": "npm run lint -- --watch"
+    },
+    "author": "mastero",
+    "license": "MIT",
+    "dependencies": {
+        "numeral": "^2.0.6"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.6.4",
+        "@babel/core": "^7.6.4",
+        "@babel/node": "^7.6.3",
+        "@babel/preset-env": "^7.9.5",
+        "babel-loader": "^8.1.0",
+        "chalk": "^2.4.2",
+        "concurrently": "^5.1.0",
+        "css-loader": "^3.5.2",
+        "eslint": "^6.8.0",
+        "eslint-config-standard": "^14.1.1",
+        "eslint-loader": "^4.0.0",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "eslint-watch": "^6.0.1",
+        "express": "^4.17.1",
+        "style-loader": "^1.1.4",
+        "webpack": "^4.42.1",
+        "webpack-dev-middleware": "^3.7.2",
+        "webpack-hot-middleware": "^2.25.0"
+    }
+}
