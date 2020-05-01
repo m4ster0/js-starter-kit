@@ -5,10 +5,12 @@
     "scripts": {
         "start-message": "babel-node tools/start-message.js",
         "prestart": "npm run start-message",
-        "start": "concurrently -k -r -s first \"npm run open:dev\" \"npm run lint:watch\"",
+        "start": "concurrently -k -r -s first \"npm run open:dev\" \"npm run lint:watch\" \"npm run test:watch\"",
         "open:dev": "babel-node tools/dev-server.js",
         "lint": "esw --color webpack.config.* src tools",
-        "lint:watch": "npm run lint -- --watch"
+        "lint:watch": "npm run lint -- --watch",
+        "test": "mocha --reporter progress tools/test-setup.js \"src/**/*.test.js\"",
+        "test:watch": "npm run test -- --watch"
     },
     "author": "mastero",
     "license": "MIT",
@@ -20,7 +22,9 @@
         "@babel/core": "^7.6.4",
         "@babel/node": "^7.6.3",
         "@babel/preset-env": "^7.9.5",
+        "@babel/register": "^7.9.0",
         "babel-loader": "^8.1.0",
+        "chai": "^4.2.0",
         "chalk": "^2.4.2",
         "concurrently": "^5.1.0",
         "css-loader": "^3.5.2",
@@ -33,6 +37,8 @@
         "eslint-plugin-standard": "^4.0.1",
         "eslint-watch": "^6.0.1",
         "express": "^4.17.1",
+        "jsdom": "^16.2.2",
+        "mocha": "^7.1.2",
         "style-loader": "^1.1.4",
         "webpack": "^4.42.1",
         "webpack-dev-middleware": "^3.7.2",
