@@ -1,5 +1,9 @@
 # Test against the latest version of this Node.js version
 environment:
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+    - APPVEYOR_BUILD_WORKER_IMAGE: macOS
   nodejs_version: "13.13.0"
 
 # Install scripts. (runs after repo cloning)
